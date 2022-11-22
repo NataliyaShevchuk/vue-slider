@@ -32,6 +32,25 @@ createApp({
         }
     },
     methods: {
+        btnPrev (){
+            //se il current è 0, facendo il decremento andrei in negativo
+            //per evittare questo, imposto l'indice all'ultima immagine dell'array
+            if(this.actualImgIndex === 0){
+                this.actualImgIndex = this.slides.length - 1;
+            }else{
+                this.actualImgIndex--;
+            }
+        },
+        btnNext(){
+            if(this.actualImgIndex === this.slides.length - 1){
+                this.actualImgIndex = 0;
+            }else{
+                this.actualImgIndex++;
+            }
+        },
+        onClick (clickedImg){
+            this.actualImgIndex = clickedImg;
+        }
 
     }
 }).mount("#app")
